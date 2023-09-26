@@ -123,7 +123,8 @@ jobs:
           username: ${{ secrets.DEPLOY_USERNAME }}
           port: 22
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./docker-compose.yml,./.env"
+          strip_components: 1
+          source: "./.deploy/docker-compose.yml,./.env"
           target: "~/.deploy/${{ github.event.repository.name }}/"
       
       - name: Run remote db migrations
